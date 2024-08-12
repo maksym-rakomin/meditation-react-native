@@ -1,9 +1,10 @@
 import {View, Text, FlatList, Pressable, ImageBackground} from "react-native";
 import {StatusBar} from "expo-status-bar";
 import AppGradient from "@/components/AppGradient";
-import {MEDITATION_DATA} from "@/constants/meditaitonData";
+import {MEDITATION_DATA} from "@/constants/MeditationData";
 import MEDITATION_IMAGES from "@/constants/meditation-images.ts";
 import {LinearGradient} from "expo-linear-gradient";
+import {router} from "expo-router";
 
 
 const NatureMeditate = () => {
@@ -23,7 +24,7 @@ const NatureMeditate = () => {
             showsVerticalScrollIndicator={false}
             renderItem={({item, index}) => (
               <Pressable
-                onPress={() => console.log('item', item)}
+                onPress={() => router.push(`/meditate/${item.id}`)}
                 className="h-48 my-3 rounded-md overflow-hidden"
               >
                 <ImageBackground
